@@ -7,7 +7,9 @@ date: last-modified
 bibliography: references.bib
 ---
 
-## Government guidance on 'critical' safety issues for walking and cycling
+## Context: Active Travel England guidance
+
+- Project commissioned by ATE and delivered as a collaboration between Mott MacDonald and the University of Leeds
 
 ![](images/seminar/image2.png)
 
