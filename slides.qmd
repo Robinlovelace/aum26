@@ -1,14 +1,11 @@
 ---
 title: "Modelling multi-model traffic, casualties and risk"
 subtitle: "A data-driven approach to improve government guidance on critical safety issues for walking and cycling"
-author: Robin Lovelace
+author: "Robin Lovelace<br><br><a href='https://robinlovelace.net/aum26/slides.html' style='font-size:0.7em'>Online version</a> &middot; <a href='https://github.com/Robinlovelace/aum26' style='font-size:0.7em'>Source code</a>"
 format: clean-revealjs
 date: last-modified
 bibliography: references.bib
 ---
-
-- [Online version](https://robinlovelace.net/aum26/slides.html)
-- [Source code](https://github.com/Robinlovelace/aum26)
 
 ## Government guidance on 'critical' safety issues for walking and cycling
 
@@ -173,18 +170,18 @@ Example: [github.com/itsleeds/vivacitypy](https://github.com/itsleeds/vivacitypy
 | Cycling | 0.38 | Centrality + OD + attractors (XGB) |
 | Walking | 0.51 | Attractor-weighted GLM full |
 
-## Side-by-side modelling for active travel
+## Modelling pedestrians at the crossing and sidewalk level
 
 ::: {.column width="60%"}
 
-Side-by-side modelling is necessary for proper active travel modelling but is outside the scope of the current project.
+Detailed modelling of pedestrian crossings and sidewalk geometry is necessary for proper active travel analysis but is outside the scope of the current project.
 
 [osm2streets](https://a-b-street.github.io/osm2streets/#18.44/53.8174098/-1.5313925): tool for generating detailed street cross-sections from OSM data.
 
 :::
 ::: {.column width="40%"}
 
-![](images/seminar/osm2streets-side-by-side.png)
+![](images/seminar/osm2streets-side-by-side.png){width=80%}
 
 :::
 
