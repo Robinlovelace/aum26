@@ -1,114 +1,164 @@
 ---
-title: Reproducible slides with Quarto and continuous deployment via GitHub actions
-subtitle: Demonstration slides
-format: 
-  revealjs: default
-  # clean-revealjs:
-  #   self-contained: true
-html-math-method:
-  method: mathjax
-  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-author:
-  - name: Your name
-    orcid: 0000-0001-5679-6536
-    email: e.mail@leeds.ac.uk
-    affiliations: xyz
+title: "Modelling multi-model traffic, casualties and risk"
+subtitle: "A data-driven approach to improve government guidance on critical safety issues for walking and cycling"
+author: Robin Lovelace
+format: clean-revealjs
 date: last-modified
 bibliography: references.bib
 ---
 
-# Introduction
+## Government guidance on 'critical' safety issues for walking and cycling
 
-## Why make a presentation with Quarto and continuous deployment?
+![](images/seminar/image2.png)
 
-- Allows you to test ideas in a standalone environment
-- Sharing materials with collaborators and the audience
-- Continuous deployment automates the process of updating the slides and ensures reproducibility
+> "A critical safety issue is defined as a street layout or condition that is associated with an increased risk of collisions for people walking, wheeling or cycling."
 
-## How to get started?
+## Interactive part: what are critical issues from your perspective?
 
-- Check out the [Quarto documentation](https://quarto.org/)
-  - Especially the [Publishing](https://quarto.org/docs/publishing/) section
-- You can use this repository as a template for your own slides, go to https://github.com/Robinlovelace/reproducible-slides-repo-template and clone it
-- Note: the approach here is to publish the slides as part of a Quarto website project so it can be used for other purposes too, e.g. if you want to write a paper building on the slides
+More broadly: what makes you feel unsafe in relation to road danger when walking, wheeling or cycling?
 
-## Extensions
+## Critical issues in context
 
-Add extensions with the following code (which adds the [`clean-revealjs`](https://github.com/grantmcdermott/quarto-revealjs-clean) extension, for example, which has a detailed demo hosted at [github.com/grantmcdermott/quarto-revealjs-clean-demo](https://github.com/grantmcdermott/quarto-revealjs-clean-demo/blob/main/template.qmd)):
+### 3 broad categories of road danger
 
-```sh
-quarto install extension grantmcdermott/quarto-revealjs-clean
-```
+- **Infrastructure** — The focus of this presentation
+- **Interactions**
+- **Activities**
 
-Then replace:
+### Questionnaire questions
 
-```
-format: 
-  revealjs: default
-```
+- Which aspects of transport infrastructure make you feel unsafe in relation to road danger, and how?
+- Which interactions with other road users make you feel unsafe in relation to road danger?
+- What types of surrounding activities make you feel unsafe in relation to road danger, and how?
 
-with:
+## Input datasets
 
-```
-format: 
-  clean-revealjs:
-    self-contained: true
-```
+::::: columns
+::: {.column width="60%"}
 
-In the YAML header of your `.qmd` file.
+- **OpenRoads, OSM, OSMRN** — Best of all worlds network data
+- **STATS19** — Collision data
+- **Counters + model** — AADT estimates
+- **OSM** — Crossing type, footway width
+- **MMTopo** — Pavement geometry
+- **Modelling framework**: Bayesian regression (brms) $Y \sim f(X)$ — will give confidence intervals in results
 
-# Publishing slides (and more)
+:::
+::: {.column width="40%"}
 
-## Setting-up `gh-pages` branch
+![](images/seminar/image3.png)
 
-You can do this with a single quarto command:
+![](images/seminar/image4.png)
 
-``` sh
-quarto publish gh-pages
-```
+![](images/seminar/image5.png)
 
-Which leads to the following text and eventually auto-opens the deployed webiste!
+![](images/seminar/image6.png)
 
-![](images/paste-4.png)
+:::
+:::::
 
-## The website
+## Variables and units of analysis
 
-The previous command creates a `gh-pages` branch with the slides in the `docs` folder. This is then automatically deployed to GitHub Pages, and the website is opened in your browser when ready:
+| Datasets | Variables | Critical issues |
+|---|---|---|
+| OpenRoads | Road name | All |
+| OSMRN | Road width | SA03 |
+|  | Motor traffic speed | SA08 |
+| Counters + model | AADT | SA01, SA02, SA09 |
+| OSM | Crossing type | SA06, SA07 |
+| MMTopo | Footway width | SA11 |
 
-![](images/paste-5.png)
+![](images/seminar/image7.png)
 
-How awesome is that?
+Source: RL (Excalidraw)
 
-### 🤯🤯🤯
+## Assumptions and scope
 
+::::: columns
+::: {.column width="50%"}
 
-## Debugging
+- Bigger (green) or smaller (red) representations of junction systems (big to start)? — We went green
+- Should we calculate corner radii for junctions (not in first instance)? — Only if time allows
+- How to handle refuge islands (ignore in first instance)?
+- Do we include cycleway widths, surface, level of service (no)?
 
-Source of `quarto publish gh-pages` hint: [Error message from GitHub Actions](https://github.com/Robinlovelace/reproducible-slides-repo-template/actions/runs/10860601182/job/30141397336#step:4:34) when trying to publish slides to GitHub Pages:
+:::
+::: {.column width="50%"}
 
-```         
-ERROR: Unable to publish to GitHub Pages (the remote origin does not have a branch named "gh-pages". Use first `quarto publish gh-pages` locally to initialize the remote repository for publishing.)
-```
+![](images/seminar/image8.png)
 
-![](images/paste-3.png)
+:::
+:::::
 
-# Adding citations {background-color="#40666e"}
+## Sample of pavement geometry data
 
-## With the Quarto extension
+![](images/seminar/image9.png)
 
--   You need to be in Visual Editor mode (Ctrl+Shift+F4)
--   Then it's Ctrl+Shift+F8
+Source: Ordnance Survey. Action: obtain national pavement dataset.
 
-![](images/paste-2.png)
+## Proposed approach: statistical framework and envisaged outputs
 
-Creates citations like this: [@peng2011]
+::::: columns
+::: {.column width="50%"}
 
-## With "Citation Picker for Zotero" extension
+- For each variable we will model impact on collisions/ksi
+- What is acceptable risk?
+- Thresholds for junctions vs segments?
+- N. variables vs statistical power
+- [Result]{.alert}: unified framework for comparing multiple characteristics associated with Critical Issues and their interrelations
 
--   Issue with this approach: doesn't generate the .bib file
+:::
+::: {.column width="50%"}
 
-![](images/paste-1.png)
+![](images/seminar/image10.png)
 
-Alt+Shift+Z
+Source: University of Leeds
 
-# References
+:::
+:::::
+
+## Approach: Modularity
+
+::::: columns
+::: {.column width="55%"}
+
+Most research builds on more-or-less shaky foundations.
+
+We're aiming to build [strong foundations]{.alert}.
+
+That means publishing data outputs and open tools (R/Python packages) where possible [@lovelace2021].
+
+Example: [github.com/itsleeds/vivacitypy](https://github.com/itsleeds/vivacitypy)
+
+[](https://xkcd.com/2347/)
+
+:::
+::: {.column width="45%"}
+
+![](images/seminar/image11.png)
+
+:::
+:::::
+
+## Counter locations
+
+![](images/seminar/image12.png)
+
+## Cycling estimates
+
+![](images/seminar/image13.png)
+
+## Walking estimates
+
+![](images/seminar/image14.png)
+
+## Next steps
+
+- Improve classification of critical issues with reference to local knowledge
+- Improve pedestrian traffic estimates
+- Statistical modelling, building on open tools for geographic analysis [@lovelace2021] and urban network analysis methods [@sevtsukMadinaPythonPackage2025a]
+
+## References {scrollable="true"}
+
+::: {#refs}
+:::

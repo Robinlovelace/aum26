@@ -1,24 +1,22 @@
-# reproducible project template
+# Modelling multi-model traffic, casualties and risk
 
-Flexible repo template for reproducible slides with Quarto and continuous deployment via GitHub actions
+Slides for the Active Urban Mobility (AUM) 2026 seminar on critical safety issues for walking and cycling.
 
-See https://robinlovelace.github.io/reproducible-project-template/slides for the content, the most important parts of which are:
+**Live slides**: [robinlovelace.net/aum26](https://robinlovelace.net/aum26) (or [robinlovelace.github.io/aum26](https://robinlovelace.github.io/aum26))
 
-- You can use this repo as a template for your own reproducible slides by clicking on 'Use this template' at https://github.com/Robinlovelace/reproducible-project-template or with the following command using the [gh cli tool](https://cli.github.com/):
+## Structure
 
-```sh
-gh repo create repo-name --public --description "slides for xyz conference" --template robinlovelace/reproducible-project-template
+- `slides.qmd` — Main slide deck (Quarto revealjs with clean theme)
+- `index.qmd` — Landing page
+- `references.bib` — Bibliography
+- `images/seminar/` — Figures extracted from the original PowerPoint
+
+## Build locally
+
+```bash
+quarto preview
 ```
 
-- Quarto is a powerful tool for creating reproducible documents
-- Set-up GitHub pages with:
+## Continuous deployment
 
-```sh
-quarto publish gh-pages
-```
-
-- Use [GitHub actions](.github/workflows/) to automatically deploy your slides to GitHub pages
-
-## Reproducible slide projects build with this
-
-- Deploying cross-language in high impact projects, auto-updated and deployed with every commit, with R and Python code running and generating results shown in the slides: https://github.com/Robinlovelace/cross_language_projects
+GitHub Actions automatically renders and publishes to the `gh-pages` branch on every push to `main`.

@@ -1,9 +1,9 @@
 ---
-title: Reproducible slides with Quarto and continuous deployment via GitHub actions
+title: "Modelling multi-model traffic, casualties and risk"
 ---
 
-The materials here support a talk at the [Spatial Data Science across Languages (SDSL)](https://spatial-data-science.github.io/2024/) conference 2024.
+A data-driven approach to improve government guidance on critical safety issues for walking and cycling.
 
 See the [slides here](slides) and in the dropdown menu above.
 
-See the source code at [github.com/robinlovelace](https://github.com/Robinlovelace/reproducible-project-template).
+Source code: [github.com/robinlovelace/aum26](https://github.com/Robinlovelace/aum26)
