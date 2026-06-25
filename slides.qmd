@@ -191,8 +191,8 @@ Side-by-side modelling is necessary for proper active travel modelling but is ou
 ## Next steps
 
 - Improve classification of critical issues with reference to local knowledge
-- Improve pedestrian traffic estimates
-- Statistical modelling, building on open tools for geographic analysis [@lovelace2021], urban network analysis methods [@sevtsukMadinaPythonPackage2025a], and pedestrian-scale network analysis [@simons2021cityseer]
+- Improve pedestrian traffic estimates [@sevtsukMadinaPythonPackage2025a]
+- Statistical modelling, building on open tools for geographic analysis [@lovelace2021] and pedestrian-scale network analysis [@simons2021cityseer]
 
 ## References {scrollable="true"}
 
