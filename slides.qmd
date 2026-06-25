@@ -156,7 +156,7 @@ Example: [github.com/itsleeds/vivacitypy](https://github.com/itsleeds/vivacitypy
 
 - Improve classification of critical issues with reference to local knowledge
 - Improve pedestrian traffic estimates
-- Statistical modelling, building on open tools for geographic analysis [@lovelace2021] and urban network analysis methods [@sevtsukMadinaPythonPackage2025a]
+- Statistical modelling, building on open tools for geographic analysis [@lovelace2021], urban network analysis methods [@sevtsukMadinaPythonPackage2025a], and pedestrian-scale network analysis [@simons2021cityseer]
 
 ## References {scrollable="true"}
 
