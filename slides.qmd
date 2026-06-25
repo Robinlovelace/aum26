@@ -152,6 +152,16 @@ Example: [github.com/itsleeds/vivacitypy](https://github.com/itsleeds/vivacitypy
 
 ![](images/seminar/image14.png)
 
+## Modelling collisions at the junction level
+
+![](images/seminar/junction-level-modelling.png)
+
+## Modelling collisions at the segment level
+
+![](images/seminar/segment-level-modelling.png)
+
+[@gilardi_multivariate_2022]
+
 ## Modelling results
 
 | Network | R² | Basis |
