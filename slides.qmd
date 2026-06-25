@@ -170,6 +170,21 @@ Example: [github.com/itsleeds/vivacitypy](https://github.com/itsleeds/vivacitypy
 | Cycling | 0.38 | Centrality + OD + attractors (XGB) |
 | Walking | 0.51 | Attractor-weighted GLM full |
 
+## Side-by-side modelling for active travel
+
+::: {.column width="60%"}
+
+Side-by-side modelling is necessary for proper active travel modelling but is outside the scope of the current project.
+
+[osm2streets](https://a-b-street.github.io/osm2streets/#18.44/53.8174098/-1.5313925): tool for generating detailed street cross-sections from OSM data.
+
+:::
+::: {.column width="40%"}
+
+![](images/seminar/osm2streets-side-by-side.png)
+
+:::
+
 ## Next steps
 
 - Improve classification of critical issues with reference to local knowledge
