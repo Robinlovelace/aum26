@@ -152,6 +152,14 @@ Example: [github.com/itsleeds/vivacitypy](https://github.com/itsleeds/vivacitypy
 
 ![](images/seminar/image14.png)
 
+## Modelling results
+
+| Network | R² | Basis |
+|---------|-----|-------|
+| Driving | 0.81 | Sensor + centrality (XGB) |
+| Cycling | 0.38 | Centrality + OD + attractors (XGB) |
+| Walking | 0.51 | Attractor-weighted GLM full |
+
 ## Next steps
 
 - Improve classification of critical issues with reference to local knowledge
