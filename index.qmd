@@ -4,6 +4,5 @@ title: "Modelling multi-model traffic, casualties and risk"
 
 A data-driven approach to improve government guidance on critical safety issues for walking and cycling.
 
-See the [slides here](slides) and in the dropdown menu above.
-
-Source code: [github.com/robinlovelace/aum26](https://github.com/Robinlovelace/aum26)
+- [Online version](https://robinlovelace.net/aum26/slides.html)
+- [Source code](https://github.com/Robinlovelace/aum26)
