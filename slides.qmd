@@ -7,6 +7,9 @@ date: last-modified
 bibliography: references.bib
 ---
 
+- [Online version](https://robinlovelace.net/aum26/slides.html)
+- [Source code](https://github.com/Robinlovelace/aum26)
+
 ## Government guidance on 'critical' safety issues for walking and cycling
 
 ![](images/seminar/image2.png)
