@@ -19,6 +19,12 @@ bibliography: references.bib
 
 More broadly: what makes you feel unsafe in relation to road danger when walking, wheeling or cycling?
 
+## Spot the critical issues
+
+![](images/vid-walking.gif){fig-align="center" width="95%"}
+
+Source: Robin Lovelace, action-based research
+
 ## Critical issues in context
 
 ### 3 broad categories of road danger
