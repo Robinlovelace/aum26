@@ -6,3 +6,5 @@ A data-driven approach to improve government guidance on critical safety issues 
 
 - Online version: [robinlovelace.net/aum26](https://robinlovelace.net/aum26)
 - Source code: [github.com/Robinlovelace/aum26](https://github.com/Robinlovelace/aum26)
+- Talk recording: [talk.mp4](talk.mp4) (21 min)
+- Transcript: [transcript.qmd](transcript.qmd)

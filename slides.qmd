@@ -1,7 +1,7 @@
 ---
 title: "Modelling multi-model traffic, casualties and risk"
 subtitle: "A data-driven approach to improve government guidance on critical safety issues for walking and cycling"
-author: "Robin Lovelace<br><br><span style='font-size:0.7em'>Online version: <a href='https://robinlovelace.net/aum26'>robinlovelace.net/aum26</a></span><br><span style='font-size:0.7em'>Source code: <a href='https://github.com/Robinlovelace/aum26'>github.com/robinlovelace/aum26</a></span>"
+author: "Robin Lovelace<br><br><span style='font-size:0.7em'>Online version: <a href='https://robinlovelace.net/aum26'>robinlovelace.net/aum26</a></span><br><span style='font-size:0.7em'>Source code: <a href='https://github.com/Robinlovelace/aum26'>github.com/robinlovelace/aum26</a></span><br><span style='font-size:0.7em'>Audio: <a href='talk.mp4'>talk.mp4</a> · <a href='transcript.qmd'>Transcript</a></span>"
 format: clean-revealjs
 date: last-modified
 bibliography: references.bib

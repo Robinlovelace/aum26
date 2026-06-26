@@ -1,0 +1,104 @@
+---
+title: "Talk transcript: Modelling multi-modal traffic, casualties and risk"
+format: html
+---
+
+Audio recording: [talk.mp4](talk.mp4) (21 min)
+
+---
+
+**Ying:** Now I would like to present Professor Robin Lovelace, who teaches Transport Data Science at the University of Leeds. He's done an extensive amount of work with the geographic and computational methods for sustainable transport policies, and has also done a lot of policy science work as well. So we look forward to your talk about modelling multi-modal traffic, casualties and risk, connecting with a lot of the issues that we've been talking about.
+
+**Robin:** Thank you very much Ying for the introduction. Just trying to work out how to make this go full screen — there we go. So yeah, my name's Robin and I'm part of the shorts crew — the two people from Northern England coming down and rocking the shorts following the health warning about the heatwave, although it's actually nice and cool in this room.
+
+Anyway, I'm going to be talking about multi-modal traffic, and I think this is pretty much the perfect place to present on this topic. We're two silos as transport researchers — I'm based at the Institute for Transport Studies at the University of Leeds, and I would say we are a little bit tribal. You have the methodological teams with the economists doing choice modelling. I would say I'm kind of fairly methods agnostic, but I use data — I'm a data scientist. But it's also divided up by the modes of transport that we look at. You certainly see this in government even more than academia, where you have bus people, you have a very strong rail lobby who look at rail, and I think there is a danger — just to make a wider comment — that we see active travel itself becoming a silo.
+
+It's very interesting we've had some mention of Active Travel England, which is a relatively new government agency. I worked in Active Travel England for two years, and this is like active travel becoming institutionalised, which I think overall is a really good thing. But one thing that I noticed there is that it started to get a bit tribal. It's almost like "oh, the active travel people," and there weren't enough conversations between the active travel people and colleagues in the Department for Transport looking at other modes. So this is a very positive step — the move, as Kelly mentioned, from pedestrian modelling to active travel modelling. And I'm very happy to be typecast as a bike person, because a lot of my work has been around bikes, but I think it's great that we're thinking more multimodally, if that's a word.
+
+So that's an opening comment, and I'm going to get cranking with the actual presentation. I'm actually going to push through a lot of the technical stuff, because what we're doing here is quite technical, but I'm going to focus on the ideas underlying it. I'm not presenting final results, and I really do want to open this up for conversation, because I'm midway through this project that's funded by Active Travel England to try to improve the guidance on critical safety issues.
+
+## Context
+
+For context, Active Travel England has put out guidance. You can find it on their website — gov.uk. It's actually, I think, a very good document. It's got excellent infographics. It's got 16 critical safety issues that, if any one of those is not meeting those criteria, basically Active Travel England won't fund your project. So there's a hard line on there. But you can see straight away from the definition, from the official guidance, that it's not really defined quantitatively. It's defined as "a layout or condition that is associated with an increased risk of collisions." What does that mean? So as a data scientist, I want to dive into what that means.
+
+I've got an interactive part, but given the clock's hot on my heels, I might save that for the questions. I do want to say it is a difficult thing, thinking about critical issues. The real world is complicated, and I think this also links to what Kelly was talking about — that it depends on who you ask, and it's very much dependent on assumptions about who you're modelling. And I think this demonstrates that in this environment, there are many critical issues that you wouldn't normally consider, but it just shows the importance of having different users in mind.
+
+OK, so in context, this is taking a step back from the actual commission. We're doing a literature review, and we're doing some questionnaires to the public. It would be good to get your feedback, because we don't want to say the 16 issues that ATE has identified is everything on here. But broadly, you have infrastructure, interactions with different road users, and then broader activities — like stuff that's going on in the environment — maybe there's road works happening. That's the framework that we're using to think about this.
+
+This talk is focused on infrastructure, because that is what Active Travel England funds. That is something that's tangible and measurable, as Alistair talks about. So we've got these questionnaire questions that we're going to compare with the findings of the data science work, which is what I'm focused on.
+
+## Input datasets
+
+In terms of input datasets, there's a big data processing pipeline here. On the infrastructure data, we've basically got three main sources: Ordnance Survey OpenRoad, which is the UK's official source of data; OpenStreetMap data, which is what Alistair mentioned; and very detailed data from the OSMRN — the Multi-modal Routing Network, which is not in the public domain. There's also another one, which is incredibly detailed pavement geometries, also from Ordnance Survey — that's like a 50 gigabyte zip file for England, and it requires some careful work when processing it. Then we've got STATS19 data, counter data from a wide range of different technologies, and MasterMap Topo for pavement geometry.
+
+The modelling framework that we're moving towards is a Bayesian regression using the R package brms, which should give us confidence intervals when we're trying to assess the level of safety. And I think a really important thing when you're doing statistical modelling is what's your unit of analysis. What I think — perhaps controversially — is a mistake that many road safety papers make is that they use the collision as the unit of analysis. But the collision shouldn't be happening at all. It's actually equally interesting when a collision *doesn't* happen. So I think a better approach is to have the actual road network as the unit of analysis, and then you need some way to break it up into meaningful pieces.
+
+It's well known in the literature that the majority of active travel collisions happen at junctions, so you need to treat junctions separately. The geographic representation of that is shown on this map, where we're converting the point geometries of the junctions into some kind of spatially extensive approach. I'm planning a paper on that, but that's not the focus of this talk.
+
+## Assumptions and scope
+
+So we've got some assumptions in there about what we should do — various options about what we include or don't include in the model. One thing I'd like to flag is that from the pavement geometry dataset, you can actually calculate something quite interesting: corner radii. So when a car is travelling, how much does it have to slow down to take a tight curve? If the corner radius is big, that is generally seen as a bad thing. Interestingly, Active Travel England doesn't quantify that — it's not a critical safety issue — so we're looking to explore that as well.
+
+The real world is complicated. The Ordnance Survey can tell you about some of these things, but there are quite a few features that are not in any nationally available dataset we've got. Surface roughness, road markings — these are not in any of the datasets we have.
+
+## Strong foundations
+
+I think a lot of research in general, not just transport or active travel research, kind of looks like the image where we're adding incrementally on like the last paper published a year ago. But we're resting on data foundations and modelling foundations that don't get revisited because they're difficult, chunky, and sometimes they are literally revered sacred cows you can't talk about. So the actual approach I'm trying to take is to build strong foundations rather than just going straight to the top and adding incrementally. Some of those foundations are data foundations — I'm hoping to publish some open datasets from this, certainly open code. One example is a Python package called VivacityPy.
+
+## Modelling results
+
+Some quick maps showing the diversity of counter datasets we're bringing into play. They include motor traffic, pedestrian, and cycling — and they are very heterogeneous. There's a lot of data processing that needs to go in just to make sense of all of them.
+
+After processing them, we can start to run some models. This actually links perfectly with something that Andreas said — I didn't set him up, I promise. He asked in his talk: "Should we have AADT for walking, AADT for cycling, and traffic?" And I think absolutely yes, because it puts active travel on the same language, the same footing as motor traffic, which everyone knows has more data. AADT for cycling according to our model — which isn't the best, and I'll come onto that — and for walking, I need to start using the Madina package or maybe sDNA properly. The key thing is we are actually generating these estimates, and they are better than nothing — better than random guesses, and we can model them.
+
+In terms of the modelling approach, as I showed before, we're linking the collision data to spatial representations of the junctions. It's a junction-first model because most collisions happen at junctions, and at the segment level. So we've actually got separate models for junction-level and segment-level analyses, and that allows us to estimate the risk in units of collisions per billion kilometres.
+
+It is quite an ambitious project. We haven't actually got to that answer, but what we do have is some nice results for the West Midlands. We are looking at other areas as well. Driving — as you would expect — we've actually got really high model fit there with sensors using an XGBoost model. Cycling, because it's so variable and because so much cycling traffic goes on things like canal towpaths, we're actually getting quite a low model fit. The walking is higher, but I would say don't trust that number because that's just because you've got very few walking counters — so take that with a grain of salt. I should probably have some other metrics in there.
+
+## Next steps
+
+In reality, what we need to move towards is modelling pedestrians at the crossing and sidewalk level, so you have to get which side of the road they're on. Crossings are really important events for pedestrians that I don't capture well in this, but I'm going to be exploring that. I'm just plugging an open tool there — osm2streets — that allows you to look at that.
+
+In terms of next steps, I definitely need to improve the classification of critical issues, improve the pedestrian traffic estimates — there's a link to Andreas' paper on that — and then move towards the statistical modelling. If anyone's got any ideas or questions about this, I'd be very happy to take questions. Thank you.
+
+**Speaker 1:** This is the current record to have finished ahead of time, so wonderful. We'll have the time for questions. Excellent.
+
+## Q&A
+
+**Audience member 1:** So the ATE definition is objective values of collision. Your question seems to be more about perception of safety. How do you combine these?
+
+**Robin:** What makes you think that I'm looking at the perception of safety?
+
+**Audience member 1:** Well, there were some questions about when you...
+
+**Robin:** So that's a separate part. Just to put this in context... We are looking at the infrastructure part of it. There are three components to the project: the literature review — so what has been looked at in other countries and the broader literature; what do people think — so we've actually put out a big survey to all disabled street user groups and Cycling UK, and we get their opinion; but I'm focused on the data-driven approach. Active Travel England is interested in that wider thing, but this project — what I'm doing — is looking at the quantitative evidence of different types of infrastructure being more or less dangerous. But we are interested in that big picture. Active Travel England understandably is more interested in the quantitative: "in your data, what is dangerous?"
+
+**Audience member 1:** Is it near collision, is it complex, or what is it?
+
+**Robin:** You set me up perfectly to talk about this slide, which I didn't want to go into because it's quite complicated. Basically, we don't know — there are no thresholds. What they have are thresholds called critical safety thresholds, above which it's flagged as a critical issue. Look up "critical safety issues, gov.uk" — the guidance is out there. But they don't quantify the level of risk. So they're saying, and this is one of 16, where on the X axis you have AADT for motor traffic, and their threshold is 2,500 cars per day on average. If you exceed that, it's called critical. But we can actually link that with a statistical model to the Y axis, which is risk and collisions. Each of those dots is supposed to be a segment or a junction, and we can actually work out what the implied acceptable level of risk is from those, and then find out which critical issues imply a bigger level of risk, if that makes sense. Because that's Active Travel England's definition — it's "an increased risk of collision" — and they have to do everything based on official statistics, so STATS19 is a very well-established government dataset.
+
+**Audience member 2:** We don't have a national dataset of near misses.
+
+**Robin:** Yeah, good question. Although near misses are probably the most important thing anywhere. You're right, yeah.
+
+**Audience member 2:** I'm very interested in the junction risk at each of the standard crossings. The risk at each of those crossings could be quite profoundly different.
+
+**Robin:** Very much so, yeah.
+
+**Audience member 2:** Is that something — does the crash data tell you which of those crossings the crash happened at, or does it just say "at the junction"?
+
+**Robin:** This is a great question. The short answer is no, I'm afraid not. You do get some stuff out of STATS19 — you get the vehicle movement, turning left — but as far as I can tell, and tell me if anyone's looking at this in detail, you cannot work out which arm they came on. So it's really quite complicated. And when you get down to the pedestrian level, you don't know which arm they're on. So what we're doing is solving that problem by denoising it — by aggregating everything. We're actually taking the minimum AADT because we're assuming that people cross where it's safest, which they may not be doing, but we have to make certain assumptions and aggregations to account for that. We don't have that level of detail.
+
+**Audience member 3:** We are using speed?
+
+**Robin:** We are using speed. Yeah, we very much are using speed as well. Of the 16 critical safety issues, only eight of those are easily quantifiable. Speed is super important, so we are including speed. But the theoretical framework would be similar — where instead of AADT on the X axis, you'd have 85th percentile speed, which we have to model. We've only got the median.
+
+**Audience member 4:** What is the level of risk of potholes?
+
+**Robin:** I don't know, but I think it's bigger. I can say for sure it's bigger for active modes than it is for bigger vehicles.
+
+**Audience member 4:** I thought that because you're moving slower — most people walking and cycling... But wouldn't that be something you might want to include, given the prevalence?
+
+**Robin:** Absolutely. And I think that will come out of the survey — the questionnaire that we're putting out. Potholes are the stuff we don't have data on. It would be great to have a national database of potholes, but like Alastair said, the UK is quite good, but even here we don't have that level of detail. So my working assumption is that they have a bigger effect on slower moving modes, but that needs to be tested.
+
+**Speaker:** Something that you will get popular support on. Jesse, do you want to ask something? No? Okay. Good. Thank you very much.

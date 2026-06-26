@@ -1,0 +1,191 @@
+[
+  {
+    "objectID": "transcript.html",
+    "href": "transcript.html",
+    "title": "Talk transcript: Modelling multi-modal traffic, casualties and risk",
+    "section": "",
+    "text": "Audio recording: talk.mp4 (21 min)\nYing: Now I would like to present Professor Robin Lovelace, who teaches Transport Data Science at the University of Leeds. He’s done an extensive amount of work with the geographic and computational methods for sustainable transport policies, and has also done a lot of policy science work as well. So we look forward to your talk about modelling multi-modal traffic, casualties and risk, connecting with a lot of the issues that we’ve been talking about.\nRobin: Thank you very much Ying for the introduction. Just trying to work out how to make this go full screen — there we go. So yeah, my name’s Robin and I’m part of the shorts crew — the two people from Northern England coming down and rocking the shorts following the health warning about the heatwave, although it’s actually nice and cool in this room.\nAnyway, I’m going to be talking about multi-modal traffic, and I think this is pretty much the perfect place to present on this topic. We’re two silos as transport researchers — I’m based at the Institute for Transport Studies at the University of Leeds, and I would say we are a little bit tribal. You have the methodological teams with the economists doing choice modelling. I would say I’m kind of fairly methods agnostic, but I use data — I’m a data scientist. But it’s also divided up by the modes of transport that we look at. You certainly see this in government even more than academia, where you have bus people, you have a very strong rail lobby who look at rail, and I think there is a danger — just to make a wider comment — that we see active travel itself becoming a silo.\nIt’s very interesting we’ve had some mention of Active Travel England, which is a relatively new government agency. I worked in Active Travel England for two years, and this is like active travel becoming institutionalised, which I think overall is a really good thing. But one thing that I noticed there is that it started to get a bit tribal. It’s almost like “oh, the active travel people,” and there weren’t enough conversations between the active travel people and colleagues in the Department for Transport looking at other modes. So this is a very positive step — the move, as Kelly mentioned, from pedestrian modelling to active travel modelling. And I’m very happy to be typecast as a bike person, because a lot of my work has been around bikes, but I think it’s great that we’re thinking more multimodally, if that’s a word.\nSo that’s an opening comment, and I’m going to get cranking with the actual presentation. I’m actually going to push through a lot of the technical stuff, because what we’re doing here is quite technical, but I’m going to focus on the ideas underlying it. I’m not presenting final results, and I really do want to open this up for conversation, because I’m midway through this project that’s funded by Active Travel England to try to improve the guidance on critical safety issues."
+  },
+  {
+    "objectID": "transcript.html#context",
+    "href": "transcript.html#context",
+    "title": "Talk transcript: Modelling multi-modal traffic, casualties and risk",
+    "section": "Context",
+    "text": "Context\nFor context, Active Travel England has put out guidance. You can find it on their website — gov.uk. It’s actually, I think, a very good document. It’s got excellent infographics. It’s got 16 critical safety issues that, if any one of those is not meeting those criteria, basically Active Travel England won’t fund your project. So there’s a hard line on there. But you can see straight away from the definition, from the official guidance, that it’s not really defined quantitatively. It’s defined as “a layout or condition that is associated with an increased risk of collisions.” What does that mean? So as a data scientist, I want to dive into what that means.\nI’ve got an interactive part, but given the clock’s hot on my heels, I might save that for the questions. I do want to say it is a difficult thing, thinking about critical issues. The real world is complicated, and I think this also links to what Kelly was talking about — that it depends on who you ask, and it’s very much dependent on assumptions about who you’re modelling. And I think this demonstrates that in this environment, there are many critical issues that you wouldn’t normally consider, but it just shows the importance of having different users in mind.\nOK, so in context, this is taking a step back from the actual commission. We’re doing a literature review, and we’re doing some questionnaires to the public. It would be good to get your feedback, because we don’t want to say the 16 issues that ATE has identified is everything on here. But broadly, you have infrastructure, interactions with different road users, and then broader activities — like stuff that’s going on in the environment — maybe there’s road works happening. That’s the framework that we’re using to think about this.\nThis talk is focused on infrastructure, because that is what Active Travel England funds. That is something that’s tangible and measurable, as Alistair talks about. So we’ve got these questionnaire questions that we’re going to compare with the findings of the data science work, which is what I’m focused on."
+  },
+  {
+    "objectID": "transcript.html#input-datasets",
+    "href": "transcript.html#input-datasets",
+    "title": "Talk transcript: Modelling multi-modal traffic, casualties and risk",
+    "section": "Input datasets",
+    "text": "Input datasets\nIn terms of input datasets, there’s a big data processing pipeline here. On the infrastructure data, we’ve basically got three main sources: Ordnance Survey OpenRoad, which is the UK’s official source of data; OpenStreetMap data, which is what Alistair mentioned; and very detailed data from the OSMRN — the Multi-modal Routing Network, which is not in the public domain. There’s also another one, which is incredibly detailed pavement geometries, also from Ordnance Survey — that’s like a 50 gigabyte zip file for England, and it requires some careful work when processing it. Then we’ve got STATS19 data, counter data from a wide range of different technologies, and MasterMap Topo for pavement geometry.\nThe modelling framework that we’re moving towards is a Bayesian regression using the R package brms, which should give us confidence intervals when we’re trying to assess the level of safety. And I think a really important thing when you’re doing statistical modelling is what’s your unit of analysis. What I think — perhaps controversially — is a mistake that many road safety papers make is that they use the collision as the unit of analysis. But the collision shouldn’t be happening at all. It’s actually equally interesting when a collision doesn’t happen. So I think a better approach is to have the actual road network as the unit of analysis, and then you need some way to break it up into meaningful pieces.\nIt’s well known in the literature that the majority of active travel collisions happen at junctions, so you need to treat junctions separately. The geographic representation of that is shown on this map, where we’re converting the point geometries of the junctions into some kind of spatially extensive approach. I’m planning a paper on that, but that’s not the focus of this talk."
+  },
+  {
+    "objectID": "transcript.html#assumptions-and-scope",
+    "href": "transcript.html#assumptions-and-scope",
+    "title": "Talk transcript: Modelling multi-modal traffic, casualties and risk",
+    "section": "Assumptions and scope",
+    "text": "Assumptions and scope\nSo we’ve got some assumptions in there about what we should do — various options about what we include or don’t include in the model. One thing I’d like to flag is that from the pavement geometry dataset, you can actually calculate something quite interesting: corner radii. So when a car is travelling, how much does it have to slow down to take a tight curve? If the corner radius is big, that is generally seen as a bad thing. Interestingly, Active Travel England doesn’t quantify that — it’s not a critical safety issue — so we’re looking to explore that as well.\nThe real world is complicated. The Ordnance Survey can tell you about some of these things, but there are quite a few features that are not in any nationally available dataset we’ve got. Surface roughness, road markings — these are not in any of the datasets we have."
+  },
+  {
+    "objectID": "transcript.html#strong-foundations",
+    "href": "transcript.html#strong-foundations",
+    "title": "Talk transcript: Modelling multi-modal traffic, casualties and risk",
+    "section": "Strong foundations",
+    "text": "Strong foundations\nI think a lot of research in general, not just transport or active travel research, kind of looks like the image where we’re adding incrementally on like the last paper published a year ago. But we’re resting on data foundations and modelling foundations that don’t get revisited because they’re difficult, chunky, and sometimes they are literally revered sacred cows you can’t talk about. So the actual approach I’m trying to take is to build strong foundations rather than just going straight to the top and adding incrementally. Some of those foundations are data foundations — I’m hoping to publish some open datasets from this, certainly open code. One example is a Python package called VivacityPy."
+  },
+  {
+    "objectID": "transcript.html#modelling-results",
+    "href": "transcript.html#modelling-results",
+    "title": "Talk transcript: Modelling multi-modal traffic, casualties and risk",
+    "section": "Modelling results",
+    "text": "Modelling results\nSome quick maps showing the diversity of counter datasets we’re bringing into play. They include motor traffic, pedestrian, and cycling — and they are very heterogeneous. There’s a lot of data processing that needs to go in just to make sense of all of them.\nAfter processing them, we can start to run some models. This actually links perfectly with something that Andreas said — I didn’t set him up, I promise. He asked in his talk: “Should we have AADT for walking, AADT for cycling, and traffic?” And I think absolutely yes, because it puts active travel on the same language, the same footing as motor traffic, which everyone knows has more data. AADT for cycling according to our model — which isn’t the best, and I’ll come onto that — and for walking, I need to start using the Madina package or maybe sDNA properly. The key thing is we are actually generating these estimates, and they are better than nothing — better than random guesses, and we can model them.\nIn terms of the modelling approach, as I showed before, we’re linking the collision data to spatial representations of the junctions. It’s a junction-first model because most collisions happen at junctions, and at the segment level. So we’ve actually got separate models for junction-level and segment-level analyses, and that allows us to estimate the risk in units of collisions per billion kilometres.\nIt is quite an ambitious project. We haven’t actually got to that answer, but what we do have is some nice results for the West Midlands. We are looking at other areas as well. Driving — as you would expect — we’ve actually got really high model fit there with sensors using an XGBoost model. Cycling, because it’s so variable and because so much cycling traffic goes on things like canal towpaths, we’re actually getting quite a low model fit. The walking is higher, but I would say don’t trust that number because that’s just because you’ve got very few walking counters — so take that with a grain of salt. I should probably have some other metrics in there."
+  },
+  {
+    "objectID": "transcript.html#next-steps",
+    "href": "transcript.html#next-steps",
+    "title": "Talk transcript: Modelling multi-modal traffic, casualties and risk",
+    "section": "Next steps",
+    "text": "Next steps\nIn reality, what we need to move towards is modelling pedestrians at the crossing and sidewalk level, so you have to get which side of the road they’re on. Crossings are really important events for pedestrians that I don’t capture well in this, but I’m going to be exploring that. I’m just plugging an open tool there — osm2streets — that allows you to look at that.\nIn terms of next steps, I definitely need to improve the classification of critical issues, improve the pedestrian traffic estimates — there’s a link to Andreas’ paper on that — and then move towards the statistical modelling. If anyone’s got any ideas or questions about this, I’d be very happy to take questions. Thank you.\nSpeaker 1: This is the current record to have finished ahead of time, so wonderful. We’ll have the time for questions. Excellent."
+  },
+  {
+    "objectID": "transcript.html#qa",
+    "href": "transcript.html#qa",
+    "title": "Talk transcript: Modelling multi-modal traffic, casualties and risk",
+    "section": "Q&A",
+    "text": "Q&A\nAudience member 1: So the ATE definition is objective values of collision. Your question seems to be more about perception of safety. How do you combine these?\nRobin: What makes you think that I’m looking at the perception of safety?\nAudience member 1: Well, there were some questions about when you…\nRobin: So that’s a separate part. Just to put this in context… We are looking at the infrastructure part of it. There are three components to the project: the literature review — so what has been looked at in other countries and the broader literature; what do people think — so we’ve actually put out a big survey to all disabled street user groups and Cycling UK, and we get their opinion; but I’m focused on the data-driven approach. Active Travel England is interested in that wider thing, but this project — what I’m doing — is looking at the quantitative evidence of different types of infrastructure being more or less dangerous. But we are interested in that big picture. Active Travel England understandably is more interested in the quantitative: “in your data, what is dangerous?”\nAudience member 1: Is it near collision, is it complex, or what is it?\nRobin: You set me up perfectly to talk about this slide, which I didn’t want to go into because it’s quite complicated. Basically, we don’t know — there are no thresholds. What they have are thresholds called critical safety thresholds, above which it’s flagged as a critical issue. Look up “critical safety issues, gov.uk” — the guidance is out there. But they don’t quantify the level of risk. So they’re saying, and this is one of 16, where on the X axis you have AADT for motor traffic, and their threshold is 2,500 cars per day on average. If you exceed that, it’s called critical. But we can actually link that with a statistical model to the Y axis, which is risk and collisions. Each of those dots is supposed to be a segment or a junction, and we can actually work out what the implied acceptable level of risk is from those, and then find out which critical issues imply a bigger level of risk, if that makes sense. Because that’s Active Travel England’s definition — it’s “an increased risk of collision” — and they have to do everything based on official statistics, so STATS19 is a very well-established government dataset.\nAudience member 2: We don’t have a national dataset of near misses.\nRobin: Yeah, good question. Although near misses are probably the most important thing anywhere. You’re right, yeah.\nAudience member 2: I’m very interested in the junction risk at each of the standard crossings. The risk at each of those crossings could be quite profoundly different.\nRobin: Very much so, yeah.\nAudience member 2: Is that something — does the crash data tell you which of those crossings the crash happened at, or does it just say “at the junction”?\nRobin: This is a great question. The short answer is no, I’m afraid not. You do get some stuff out of STATS19 — you get the vehicle movement, turning left — but as far as I can tell, and tell me if anyone’s looking at this in detail, you cannot work out which arm they came on. So it’s really quite complicated. And when you get down to the pedestrian level, you don’t know which arm they’re on. So what we’re doing is solving that problem by denoising it — by aggregating everything. We’re actually taking the minimum AADT because we’re assuming that people cross where it’s safest, which they may not be doing, but we have to make certain assumptions and aggregations to account for that. We don’t have that level of detail.\nAudience member 3: We are using speed?\nRobin: We are using speed. Yeah, we very much are using speed as well. Of the 16 critical safety issues, only eight of those are easily quantifiable. Speed is super important, so we are including speed. But the theoretical framework would be similar — where instead of AADT on the X axis, you’d have 85th percentile speed, which we have to model. We’ve only got the median.\nAudience member 4: What is the level of risk of potholes?\nRobin: I don’t know, but I think it’s bigger. I can say for sure it’s bigger for active modes than it is for bigger vehicles.\nAudience member 4: I thought that because you’re moving slower — most people walking and cycling… But wouldn’t that be something you might want to include, given the prevalence?\nRobin: Absolutely. And I think that will come out of the survey — the questionnaire that we’re putting out. Potholes are the stuff we don’t have data on. It would be great to have a national database of potholes, but like Alastair said, the UK is quite good, but even here we don’t have that level of detail. So my working assumption is that they have a bigger effect on slower moving modes, but that needs to be tested.\nSpeaker: Something that you will get popular support on. Jesse, do you want to ask something? No? Okay. Good. Thank you very much."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "",
+    "text": "A data-driven approach to improve government guidance on critical safety issues for walking and cycling.\n\nOnline version: robinlovelace.net/aum26\nSource code: github.com/Robinlovelace/aum26\nTalk recording: talk.mp4 (21 min)\nTranscript: transcript.qmd"
+  },
+  {
+    "objectID": "slides.html#context-active-travel-england-guidance",
+    "href": "slides.html#context-active-travel-england-guidance",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Context: Active Travel England guidance",
+    "text": "Context: Active Travel England guidance\n\nProject commissioned by ATE and delivered as a collaboration between Mott MacDonald and the University of Leeds\n\n\n\n“A critical safety issue is defined as a street layout or condition that is associated with an increased risk of collisions for people walking, wheeling or cycling.”"
+  },
+  {
+    "objectID": "slides.html#interactive-part-what-are-critical-issues-from-your-perspective",
+    "href": "slides.html#interactive-part-what-are-critical-issues-from-your-perspective",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Interactive part: what are critical issues from your perspective?",
+    "text": "Interactive part: what are critical issues from your perspective?\nMore broadly: what makes you feel unsafe in relation to road danger when walking, wheeling or cycling?"
+  },
+  {
+    "objectID": "slides.html#critical-issues-in-context",
+    "href": "slides.html#critical-issues-in-context",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Critical issues in context",
+    "text": "Critical issues in context\n3 broad categories of road danger\n\nInfrastructure — The focus of this presentation\nInteractions\nActivities\n\nQuestionnaire questions\n\nWhich aspects of transport infrastructure make you feel unsafe in relation to road danger, and how?\nWhich interactions with other road users make you feel unsafe in relation to road danger?\nWhat types of surrounding activities make you feel unsafe in relation to road danger, and how?"
+  },
+  {
+    "objectID": "slides.html#input-datasets",
+    "href": "slides.html#input-datasets",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Input datasets",
+    "text": "Input datasets\n\n\n\nOpenRoads, OSM, OSMRN — Best of all worlds network data\nSTATS19 — Collision data\nCounters + model — AADT estimates\nOSM — Crossing type, footway width\nMMTopo — Pavement geometry\nModelling framework: Bayesian regression (brms) \\(Y \\sim f(X)\\) — will give confidence intervals in results"
+  },
+  {
+    "objectID": "slides.html#variables-and-units-of-analysis",
+    "href": "slides.html#variables-and-units-of-analysis",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Variables and units of analysis",
+    "text": "Variables and units of analysis\n\n\n\nDatasets\nVariables\nCritical issues\n\n\n\n\nOpenRoads\nRoad name\nAll\n\n\nOSMRN\nRoad width\nSA03\n\n\n\nMotor traffic speed\nSA08\n\n\nCounters + model\nAADT\nSA01, SA02, SA09\n\n\nOSM\nCrossing type\nSA06, SA07\n\n\nMMTopo\nFootway width\nSA11\n\n\n\n\nSource: RL (Excalidraw)"
+  },
+  {
+    "objectID": "slides.html#assumptions-and-scope",
+    "href": "slides.html#assumptions-and-scope",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Assumptions and scope",
+    "text": "Assumptions and scope\n\n\n\nBigger (green) or smaller (red) representations of junction systems (big to start)? — We went green\nShould we calculate corner radii for junctions (not in first instance)? — Only if time allows\nHow to handle refuge islands (ignore in first instance)?\nDo we include cycleway widths, surface, level of service (no)?"
+  },
+  {
+    "objectID": "slides.html#sample-of-pavement-geometry-data",
+    "href": "slides.html#sample-of-pavement-geometry-data",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Sample of pavement geometry data",
+    "text": "Sample of pavement geometry data\n\nSource: Ordnance Survey. Action: obtain national pavement dataset."
+  },
+  {
+    "objectID": "slides.html#proposed-approach-statistical-framework-and-envisaged-outputs",
+    "href": "slides.html#proposed-approach-statistical-framework-and-envisaged-outputs",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Proposed approach: statistical framework and envisaged outputs",
+    "text": "Proposed approach: statistical framework and envisaged outputs\n\n\n\nFor each variable we will model impact on collisions/ksi\nWhat is acceptable risk?\nThresholds for junctions vs segments?\nN. variables vs statistical power\nResult: unified framework for comparing multiple characteristics associated with Critical Issues and their interrelations\n\n\n\nSource: University of Leeds"
+  },
+  {
+    "objectID": "slides.html#approach-modularity",
+    "href": "slides.html#approach-modularity",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Approach: Modularity",
+    "text": "Approach: Modularity\n\n\nMost research builds on more-or-less shaky foundations.\nWe’re aiming to build strong foundations.\nThat means publishing data outputs and open tools (R/Python packages) where possible (Lovelace 2021).\nExample: github.com/itsleeds/vivacitypy"
+  },
+  {
+    "objectID": "slides.html#counter-locations",
+    "href": "slides.html#counter-locations",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Counter locations",
+    "text": "Counter locations"
+  },
+  {
+    "objectID": "slides.html#cycling-estimates",
+    "href": "slides.html#cycling-estimates",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Cycling estimates",
+    "text": "Cycling estimates"
+  },
+  {
+    "objectID": "slides.html#walking-estimates",
+    "href": "slides.html#walking-estimates",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Walking estimates",
+    "text": "Walking estimates"
+  },
+  {
+    "objectID": "slides.html#modelling-collisions-at-the-junction-level",
+    "href": "slides.html#modelling-collisions-at-the-junction-level",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Modelling collisions at the junction level",
+    "text": "Modelling collisions at the junction level"
+  },
+  {
+    "objectID": "slides.html#modelling-collisions-at-the-segment-level",
+    "href": "slides.html#modelling-collisions-at-the-segment-level",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Modelling collisions at the segment level",
+    "text": "Modelling collisions at the segment level\n\n(Gilardi et al. 2022)"
+  },
+  {
+    "objectID": "slides.html#modelling-results",
+    "href": "slides.html#modelling-results",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Modelling results",
+    "text": "Modelling results\n\n\n\nNetwork\nR²\nBasis\n\n\n\n\nDriving\n0.81\nSensor + centrality (XGB)\n\n\nCycling\n0.38\nCentrality + OD + attractors (XGB)\n\n\nWalking\n0.51\nAttractor-weighted GLM full"
+  },
+  {
+    "objectID": "slides.html#modelling-pedestrians-at-the-crossing-and-sidewalk-level",
+    "href": "slides.html#modelling-pedestrians-at-the-crossing-and-sidewalk-level",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Modelling pedestrians at the crossing and sidewalk level",
+    "text": "Modelling pedestrians at the crossing and sidewalk level\n\nDetailed modelling of pedestrian crossings and sidewalk geometry is necessary for proper active travel analysis but is outside the scope of the current project.\nosm2streets: tool for generating detailed street cross-sections from OSM data."
+  },
+  {
+    "objectID": "slides.html#next-steps",
+    "href": "slides.html#next-steps",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "Next steps",
+    "text": "Next steps\n\nImprove classification of critical issues with reference to local knowledge\nImprove pedestrian traffic estimates (Sevtsuk and Alhassan 2025)\nStatistical modelling, building on open tools for geographic analysis (Lovelace 2021) and pedestrian-scale network analysis (Simons 2021)"
+  },
+  {
+    "objectID": "slides.html#references",
+    "href": "slides.html#references",
+    "title": "Modelling multi-model traffic, casualties and risk",
+    "section": "References",
+    "text": "References\n\n\nGilardi, Andrea, Jorge Mateu, Riccardo Borgoni, and Robin Lovelace. 2022. “Multivariate Hierarchical Analysis of Car Crashes Data Considering a Spatial Network Lattice.” Journal of the Royal Statistical Society: Series A (Statistics in Society) 185 (3): 1150–77. https://doi.org/10.1111/rssa.12823.\n\n\nLovelace, Robin. 2021. “Open Source Tools for Geographic Analysis in Transport Planning.” Journal of Geographical Systems 23 (4): 547–78. https://doi.org/10.1007/s10109-020-00342-2.\n\n\nSevtsuk, Andres, and Abdulaziz Alhassan. 2025. “Madina Python Package: Scalable Urban Network Analysis for Modeling Pedestrian and Bicycle Trips in Cities.” Journal of Transport Geography. https://doi.org/10.1016/j.jtrangeo.2025.104130.\n\n\nSimons, Gareth D. 2021. “The Cityseer Python Package for Pedestrian-Scale Network-Based Urban Analysis.” arXiv Preprint. https://doi.org/10.48550/arXiv.2106.15314."
+  }
+]
