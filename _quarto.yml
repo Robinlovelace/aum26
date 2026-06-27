@@ -5,6 +5,7 @@ project:
     - index.qmd
     - slides.qmd
     - transcript.qmd
+    - mode-shift-targets.qmd
 
 website:
   navbar:
@@ -15,3 +16,5 @@ website:
         href: index.qmd
       - text: "Slides"
         href: slides.qmd
+      - text: "Mode targets"
+        href: mode-shift-targets.qmd
