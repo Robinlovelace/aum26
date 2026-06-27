@@ -1,0 +1,91 @@
+---
+title: "Active travel mode shift targets"
+subtitle: "A comparison of national, city and international targets"
+author: "Robin Lovelace<br><br><span style='font-size:0.7em'>Online version: <a href='https://robinlovelace.net/aum26'>robinlovelace.net/aum26</a></span><br><span style='font-size:0.7em'>Source code: <a href='https://github.com/Robinlovelace/aum26'>github.com/robinlovelace/aum26</a></span>"
+format: clean-revealjs
+date: last-modified
+---
+
+## UK national active travel targets
+
+| Target | Baseline | 2030 | 2035 | Source |
+|--------|----------|------|------|--------|
+| % short journeys walked/cycled in towns/cities (England) | 41% (2018/19) | **50%** | **55%** | CWIS2, CWIS3 |
+| Cycling stages (England, annual) | 0.8bn (2013) | 1.6bn | — | CWIS2 |
+
+- CWIS3 (2025): vision that walking, wheeling and cycling are safe, easy and accessible for everyone
+- Scotland: "walking and cycling the most popular mode of travel for short, everyday journeys" by 2030
+- Wales: short journeys as likely to be made by active modes as in the Netherlands by 2030
+
+## Target comparison: UK cities
+
+| City | Current active travel | Target active travel | Target year | % cycle target | Key metric |
+|------|---------------------|-------------------|-------------|----------------|------------|
+| **Cambridge** | ~30% cycle to work | ~40% cycle aspiration | ongoing | ~40% | Maintain highest UK cycling share |
+| **Oxford** | 600k cycle trips/week | 1M cycle trips/week (+67%) | 2031 | ~450k/week (city) | Replace 1 in 4 car trips by 2030 |
+| **Greater Manchester** | 33% active travel | 50% sustainable (AT + PT) | 2040 | 10% regional centre | No net growth in motor traffic |
+| **Manchester (city)** | 6% cycling | 12% cycling (double) | 2028 | 15% by 2028 | Walking natural choice for short trips |
+| **Leeds** | 21% walking, 1% cycling | Car ≤41% of trips | 2030 | 400% increase cycling | "City where you don't need a car" |
+| **Bristol** | 30% active travel | 55% active travel | 2030 | — | Net zero 2030 scenario (Cabot Institute) |
+| **York** | ~30% active travel | Double active travel (~45%) | 2040 | — | 20% reduction in car miles by 2030 |
+| **Newcastle** | <50% walk 5×/week, 2% cycle | 50% of journeys <2 miles AT | 2030 | 25% cycle weekly by 2035 | Complete cycling network by 2040 |
+| **Edinburgh** | 36% walking, 4% cycling | Walking 37%, cycling 7% | 2030 | 7% (+35% km cycled) | 30% reduction in car kms |
+| **London** | ~80% foot/cycle/PT (current inner) | 80% sustainable modes | 2041 | — | Central 95%, Inner 90%, Outer 75% |
+| **Birmingham/WMids** | 1–2% cycling | 5% cycling (2023), 10% (2033) | 2033 | 10% | £10–20/head investment target |
+| **Reading** | 4% cycle to town centre | 8% cycle (double) | 2030 | 10% by 2036 | Walk to town: 29% → 35% by 2030 |
+
+## Target comparison: International cities
+
+| City | Current cycling share | Cycling target | Target year | Active/sustainable target | Notes |
+|------|---------------------|----------------|-------------|--------------------------|-------|
+| **Copenhagen** | 28% all trips, 49% commute | ≥25% all trips; 50% commute | 2025 | 75% AT + PT; car ≤25% | World's best bicycle city goal |
+| **Amsterdam** | ~32% all trips | 35% cycling | 2030 | — | 61% in Groningen (template city) |
+| **Paris** | ~5% (2019) → growing fast | 19.6–28.5% cycling | 2030 | 100% bikeable city (Plan Vélo 2021–26) | €250m cycling plan; 65% bike traffic increase in 2020 |
+| **Helsinki** | ~11% cycling | 20% cycling | 2030/2035 | — | Carbon neutral 2030; Baana network (140 km target) |
+| **Milan** | ~5% cycling | 20% cycling | 2035 | — | €225m Cambio plan; 750 km cycling paths |
+| **Greater Copenhagen Region** | Region: 16–29% | +20% increase in cycling | 2030 | — | Common goal across Zealand and Skåne |
+
+## Mode shift in context
+
+![Modal share comparison](images/seminar/image2.png)
+
+Key observations:
+
+- **National targets** provide the framework but **city-level ambitions** vary widely
+- Cities with **highest baseline** (Cambridge, Copenhagen) set targets to maintain/increase leadership
+- **Lower-cycling cities** (Birmingham, Manchester, Newcastle) aim for 2–3× increases from very low bases
+- **Infrastructure investment correlates strongly** with target ambition — Paris (€250m), Milan (€225m), Copenhagen (DKK 1bn+)
+- **E-bikes** increasingly seen as enabler for hilly cities (Edinburgh, Leeds) and longer commutes
+
+## Implications for ATE critical safety issues
+
+- Achieving 50% active travel by 2030 (England target) requires a **step change** in infrastructure quality
+- **Safety perception** is the #1 barrier to cycling in most UK cities
+- Critical safety issues identified in this project directly relate to **infrastructure conditions** that deter mode shift
+- **Bristol scenario**: 55% AT by 2030 would require cutting car journeys by 31% — requires safe, connected networks
+- **Manchester Bee Network**: 2,734 km of high-quality walking/wheeling/cycling routes by 2040
+- **London model**: integrating AT with public transport achieves 80% sustainable mode share
+
+## Sources and further reading
+
+| City/Region | Source document | Link |
+|-------------|----------------|------|
+| England (national) | CWIS2 / CWIS3 | [gov.uk/cwis3](https://www.gov.uk/government/publications/the-third-cycling-and-walking-investment-strategy/active-travel-active-england-the-third-cycling-and-walking-investment-strategy-cwis3) |
+| Cambridge | Cambridge Cycling Campaign; LCWIP | [camcycle.org.uk](https://www.camcycle.org.uk/magazine/magazine152/article5/) |
+| Oxford | Oxfordshire LTCP Active Travel Strategy | [oxfordshire.gov.uk](https://www.oxfordshire.gov.uk/transport-and-travel/local-transport-and-connectivity-plan/active-travel) |
+| Greater Manchester | GM Transport Strategy 2040 "Right Mix" | [tfgm.com/bee-active](https://beeactive.tfgm.com/greater-manchesters-active-travel-mission/) |
+| Manchester (city) | Manchester Active Travel Strategy (2023) | [manchester.gov.uk](https://www.manchester.gov.uk/roads-and-transport/active-travel/active-travel-in-manchester) |
+| Leeds | Connecting Leeds Transport Strategy | [leeds.gov.uk](https://www.leeds.gov.uk/parking-roads-and-travel/connecting-leeds-and-transforming-travel/transport-policy) |
+| Bristol | Bristol Net Zero 2030: modal share report | [bristol.ac.uk/cabot](https://www.bristol.ac.uk/cabot/what-we-do/modal-transport/) |
+| York | York Local Transport Strategy 2024–2040 | [york.gov.uk](https://www.york.gov.uk/downloads/file/10281/york-s-local-transport-strategy) |
+| Newcastle | Newcastle Movement Strategy 2025–2045 | [newcastle.gov.uk](https://new.newcastle.gov.uk/sites/default/files/2025-11/Newcastle%20Movement%20Strategy%202025%20to%202045.pdf) |
+| Edinburgh | City Mobility Plan 2021–2030 + Mode Share Targets | [edinburgh.gov.uk](https://www.edinburgh.gov.uk/news/article/13357/targets-for-a-sustainable-transport-future) |
+| London | Mayor's Transport Strategy M77 Mode Share Targets | [london.gov.uk](https://www.london.gov.uk/sites/default/files/mayor_of_london_-_m77_mode_share_targets.pdf) |
+| Birmingham / West Midlands | LCWIP / Cycling Charter | [birmingham.gov.uk](https://www.birmingham.gov.uk/download/downloads/id/14861/birmingham_transport_plan.pdf) |
+| Reading | Reading LCWIP (2020) | [reading.gov.uk](https://images.reading.gov.uk/2020/01/Local-Cycling-and-Walking-Infrastructure-Plan_Accessible-Low-Res_March-2020.pdf) |
+| **International** | | |
+| Copenhagen | CPH 2025 Climate Plan / Bicycle Strategy 2011–2025 | [kk.dk](https://kk.sites.itera.dk/apps/kk_pub2/pdf/1534_0TdC5G2XZr.pdf) |
+| Amsterdam | City of Amsterdam mobility targets | [oliverwymanforum.com](https://www.oliverwymanforum.com/mobility/urban-mobility-readiness-index/amsterdam.html) |
+| Paris | Plan Vélo 2021–2026 | [paris.fr](https://www.paris.fr/en/pages/a-new-cycling-plan-for-a-100-bikeable-city-28350) |
+| Helsinki | City of Helsinki cycling targets | [hel.fi](https://www.hel.fi/en/news/comprehensive-network-encourages-cycling-helsinki-wants-to-increase-the-modal-shares-of-walking-and) |
+| Milan | Cambio cycling mobility plan | [urban-mobility-observatory.transport.ec.europa.eu](https://urban-mobility-observatory.transport.ec.europa.eu/resources/case-studies/best-practice-boosting-cycling-modal-share-and-creating-safe-sustainable-cities_en) |
