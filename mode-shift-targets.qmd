@@ -17,7 +17,48 @@ date: last-modified
 - Scotland: "walking and cycling the most popular mode of travel for short, everyday journeys" by 2030
 - Wales: short journeys as likely to be made by active modes as in the Netherlands by 2030
 
-## Target comparison: UK cities
+## CWIS3 school travel targets
+
+| Target | Baseline (2023) | 2035 target | Source |
+|--------|----------------|-------------|--------|
+| % children 5–16 usually walk/cycle to school | 47% | **60%** | CWIS3 |
+| % short stages walked/cycled in towns/cities | 48% | **55%** | CWIS3 |
+
+Key facts from CWIS3:
+
+- **5,000** new walking, wheeling and cycling routes and **10,000** safer crossings by 2030
+- **Safe Routes to School programme** at national scale underway by 2030
+- **£4.5bn** total investment across CWIS3 period (2025/26–2029/30), including £1.1bn for ATE
+- Current reality: 10% of school stages under 1 mile are made by car; 51% of stages 1–2 miles are by car
+- ATE delivery plan "Worth Every Step" (June 2026): strategic priorities for 2026–2030
+
+Why it matters for cities:
+
+- School travel is a **large share of peak-time car trips** — shifting these to walking/cycling reduces congestion at school gates
+- Safety concerns about routes to school are a **key barrier** to parents allowing independent active travel
+- Building safe, coherent networks around schools creates **infrastructure that benefits all ages** in the neighbourhood
+
+## Walking mode share targets: international comparison
+
+| City/Country | Current walking (all trips) | Walking target | Target year | Context |
+|-------------|----------------------------|---------------|-------------|---------|
+| **Germany** (national) | 27% city centres | **41%** (+50%) | 2030 | "Let's Go!" National Walking Strategy |
+| **Ireland** (national) | ~16% walking | **28% active** (walk + cycle) | 2030 | 50% increase in daily active travel journeys |
+| **Seattle, USA** | 20% walking/rolling | **27%** walking/rolling | 2044 | 63% walk/bike/transit by 2044 (from 34% in 2019) |
+| **Boulder, USA** | ~43% walk + cycle | **55%** walk + cycle | 2030 | 80% walk/bike/transit/shared-vehicle by 2030 |
+| **Minneapolis, USA** | ~15% walking | **25%** walking + biking | 2030 | 35% walking + biking by 2030 target |
+| **London** | 37% Inner, 24% Outer | Walking embedded in 80% sustainable | 2041 | Central London footfall prioritised |
+| **Paris** | 52% city centre | Walking prioritised via 15-minute city | ongoing | Plan Piéton; car-free zones expanding |
+| **Copenhagen** | ~25% walking | **≥25%** walking (maintain) | 2025 | Each mode: ≥25% target; car ≤25% |
+| **Vienna** | 33% city centre, 23% outer | Walking prioritised | ongoing | Compact city model |
+
+Key observations:
+
+- Walking is the **largest active travel mode** in almost all cities — yet fewer cities set explicit walking targets
+- **Germany's national walking strategy** is the most ambitious: legislated target of +50% in city centres by 2030
+- **Boulder** and **Seattle** exemplify US cities with integrated walk/bike/transit targets rather than walking alone
+- The **15-minute city** concept (Paris, Portland, Barcelona) embeds walkability into urban planning
+- **School travel** is where walking targets and safety intersect most directly
 
 | City | Current active travel | Target active travel | Target year | % cycle target | Key metric |
 |------|---------------------|-------------------|-------------|----------------|------------|
@@ -70,7 +111,10 @@ Key observations:
 
 | City/Region | Source document | Link |
 |-------------|----------------|------|
-| England (national) | CWIS2 / CWIS3 | [gov.uk/cwis3](https://www.gov.uk/government/publications/the-third-cycling-and-walking-investment-strategy/active-travel-active-england-the-third-cycling-and-walking-investment-strategy-cwis3) |
+|| England (national) | CWIS2 / CWIS3 | [gov.uk/cwis3](https://www.gov.uk/government/publications/the-third-cycling-and-walking-investment-strategy/active-travel-active-england-the-third-cycling-and-walking-investment-strategy-cwis3) |
+|| School travel (CWIS3) | CWIS3 — 60% children walk/cycle by 2035 | [gov.uk/cwis3](https://www.gov.uk/government/publications/the-third-cycling-and-walking-investment-strategy/active-travel-active-england-the-third-cycling-and-walking-investment-strategy-cwis3) |
+|| ATE Delivery Plan | Worth Every Step (June 2026) | [gov.uk](https://www.gov.uk/government/publications/worth-every-step-active-travel-englands-delivery-plan-2026-to-2030) |
+|| School travel baseline | NTS 2023: Travel to/from school | [gov.uk](https://www.gov.uk/government/statistics/national-travel-survey-2023/nts-2023-travel-to-and-from-school) |
 | Cambridge | Cambridge Cycling Campaign; LCWIP | [camcycle.org.uk](https://www.camcycle.org.uk/magazine/magazine152/article5/) |
 | Oxford | Oxfordshire LTCP Active Travel Strategy | [oxfordshire.gov.uk](https://www.oxfordshire.gov.uk/transport-and-travel/local-transport-and-connectivity-plan/active-travel) |
 | Greater Manchester | GM Transport Strategy 2040 "Right Mix" | [tfgm.com/bee-active](https://beeactive.tfgm.com/greater-manchesters-active-travel-mission/) |
@@ -88,4 +132,12 @@ Key observations:
 | Amsterdam | City of Amsterdam mobility targets | [oliverwymanforum.com](https://www.oliverwymanforum.com/mobility/urban-mobility-readiness-index/amsterdam.html) |
 | Paris | Plan Vélo 2021–2026 | [paris.fr](https://www.paris.fr/en/pages/a-new-cycling-plan-for-a-100-bikeable-city-28350) |
 | Helsinki | City of Helsinki cycling targets | [hel.fi](https://www.hel.fi/en/news/comprehensive-network-encourages-cycling-helsinki-wants-to-increase-the-modal-shares-of-walking-and) |
-| Milan | Cambio cycling mobility plan | [urban-mobility-observatory.transport.ec.europa.eu](https://urban-mobility-observatory.transport.ec.europa.eu/resources/case-studies/best-practice-boosting-cycling-modal-share-and-creating-safe-sustainable-cities_en) |
+|| Milan | Cambio cycling mobility plan | [urban-mobility-observatory.transport.ec.europa.eu](https://urban-mobility-observatory.transport.ec.europa.eu/resources/case-studies/best-practice-boosting-cycling-modal-share-and-creating-safe-sustainable-cities_en) |
+|| **Walking targets** | | |
+|| Germany | National Walking Strategy "Let's Go!" | [d-nb.info/1368647383/34](https://d-nb.info/1368647383/34) |
+|| Ireland | National Sustainable Mobility Policy / Climate Action Plan | [gov.ie](https://www.gov.ie/en/department-of-transport/publications/national-sustainable-mobility-policy/) |
+|| Seattle | Seattle Transportation Plan (STP) 2024 | [seattle.gov](https://www.seattle.gov/documents/Departments/SDOT/STP/Appendix_C.pdf) |
+|| Boulder | Boulder Transportation Master Plan 2019 | [bouldercolorado.gov](https://bouldercolorado.gov/sites/default/files/2021-02/bouldertmpv15webplan.pdf) |
+|| Minneapolis | Minneapolis Transportation Action Plan | [climatecouncil.org.au](https://www.climatecouncil.org.au/wp-content/uploads/2024/05/Towards-transformative-and-equitable-mode-shift.pdf) |
+|| Vienna | Walking mode share data (MDPI review) | [mdpi.com/2071-1050/15/7/5719](https://www.mdpi.com/2071-1050/15/7/5719) |
+|| Paris walking | Plan Piéton / 15-minute city | [vtechworks.lib.vt.edu](https://vtechworks.lib.vt.edu/bitstream/handle/10919/114211/sustainability-15-05719-v2.pdf) |
